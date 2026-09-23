@@ -1,5 +1,7 @@
 # Applied Cryptography & Post-Quantum Security Workshop
 
+[Course website](https://hamdanabdellatef.github.io/applied-cryptography-pqc-workshop/) · [GitHub repository](https://github.com/hamdanabdellatef/applied-cryptography-pqc-workshop)
+
 **Status: Sessions 1–16, the capstone, and Labs 1 and 4–6 implemented; Labs 2–3 remain scaffolds.** A Markdown-first website with separate self-study and instructor pages, Python exercises, and Colab notebooks.
 
 Begin with [Session 1: security requirements and threat models](docs/day-1/01-security-requirements.md), its [instructor page](docs/teach/01-security-requirements.md), and [worksheet](docs/resources/threat-model-worksheet.md). The lesson includes protecting highly confidential data against a well-funded state actor.
@@ -53,11 +55,11 @@ Open the local URL printed by MkDocs. Build static HTML with:
 .\.venv\Scripts\python -m mkdocs build --strict
 ```
 
-On macOS/Linux use `.venv/bin/python` instead. Generated output goes to `site/`. Hosting and deployment will be configured after the course structure and publication destination are agreed.
+On macOS/Linux use `.venv/bin/python` instead. Generated output goes to `site/`. GitHub Actions builds and publishes updates to GitHub Pages when changes are pushed to `main`. See [publishing instructions](planning/PUBLISHING.md).
 
 ## Colab notebooks
 
-Lab 1 is self-contained, with package setup, experiments, interactive tampering controls, a collision graph, staged hints, learner checks, and a separate reference solution. Upload `notebooks/lab-01-aead.ipynb` to Colab. Day 2's nine notebooks are also self-contained and downloadable from their pages. Direct Colab launch links will follow GitHub publication. Labs 2–3 remain scaffolds.
+Lab 1 is self-contained, with package setup, experiments, interactive tampering controls, a collision graph, staged hints, learner checks, and a separate reference solution. Upload `notebooks/lab-01-aead.ipynb` to Colab. Day 2's nine notebooks are also self-contained and downloadable from their pages. The website includes Open in Colab links next to implemented notebook downloads. Labs 2–3 remain scaffolds.
 
 Edit `notebooks/source/lab-01-aead.md` and the shared Python module, then run `python scripts/build_notebooks.py`. Do not hand-edit the generated notebook or its website copy. Learners should work in their own notebook copies. Mermaid diagrams on the website require access to the pinned CDN renderer; descriptions and source remain readable offline.
 

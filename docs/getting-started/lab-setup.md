@@ -4,7 +4,7 @@ Labs 1 and 4–6 are implemented. Labs 2–3 remain scaffolds. The local validat
 
 ## Colab route
 
-Download the [Lab 1 notebook](../downloads/lab-01-aead.ipynb), open [Colab](https://colab.research.google.com/), and use **File → Upload notebook**. Save your own copy. GitHub-backed launch links will follow repository publication.
+Download the [Lab 1 notebook](../downloads/lab-01-aead.ipynb), open [Colab](https://colab.research.google.com/), and use **File → Upload notebook**. Save your own copy. You can also use the Open in Colab link next to an implemented notebook download on this website.
 
 Lab 1 installs `cryptography==50.0.1`, `ipywidgets==8.1.7`, and `matplotlib==3.10.6` when necessary. Run its setup before the experiments. If you already imported a package that setup replaces, restart the runtime and rerun from the top. All data and keys are generated in memory; no external services or credentials are required.
 

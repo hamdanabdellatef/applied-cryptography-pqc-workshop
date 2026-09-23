@@ -1,0 +1,2 @@
+# Minimal runtime for Session 4 examples and companion notebook.
+cryptography==50.0.1

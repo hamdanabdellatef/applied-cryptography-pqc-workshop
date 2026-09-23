@@ -1,0 +1,108 @@
+site_name: Applied Crypto Workshop
+site_url: https://hamdanabdellatef.github.io/applied-cryptography-pqc-workshop/
+repo_url: https://github.com/hamdanabdellatef/applied-cryptography-pqc-workshop
+edit_uri: edit/main/docs/
+hooks:
+  - scripts/site_hooks.py
+site_description: A practical workshop for developers and secure-system architects
+docs_dir: docs
+site_dir: site
+theme:
+  name: mkdocs
+extra_css:
+  - assets/stylesheets/course.css
+extra_javascript:
+  - assets/javascripts/mermaid-init.js
+plugins:
+  - search
+markdown_extensions:
+  - admonition
+  - fenced_code
+  - tables
+  - toc:
+      permalink: true
+nav:
+  - Home: index.md
+  - Start here:
+      - Choose a learning path: getting-started/learning-paths.md
+      - Overview: getting-started/overview.md
+      - Prerequisites: getting-started/prerequisites.md
+      - Lab setup: getting-started/lab-setup.md
+      - Day 2 setup: getting-started/day-2-setup.md
+      - Day 3 setup: getting-started/day-3-setup.md
+      - Schedule: getting-started/schedule.md
+  - "Day 1":
+      - Day overview: day-1/index.md
+      - "01. Security Requirements and Threat Models": day-1/01-security-requirements.md
+      - "02. Symmetric Cryptography and AEAD": day-1/02-symmetric-aead.md
+      - "03. Hashes, MACs, Passwords and KDFs": day-1/03-hashes-passwords-kdfs.md
+      - "04. Classical Public-Key Cryptography": day-1/04-classical-public-key.md
+      - "05. Digital Signatures": day-1/05-digital-signatures.md
+  - "Day 2":
+      - Day overview: day-2/index.md
+      - "06. PKI and Certificates": day-2/06-pki-certificates.md
+      - "07. TLS 1.3": day-2/07-tls.md
+      - "08. The Quantum Threat": day-2/08-quantum-threat.md
+      - "09. Post-Quantum Key Establishment": day-2/09-ml-kem.md
+      - "10. Hybrid Key Establishment": day-2/10-hybrid-key-establishment.md
+      - "11. Post-Quantum Digital Signatures": day-2/11-ml-dsa.md
+  - "Day 3":
+      - Day overview: day-3/index.md
+      - "12. Cryptographic Key Management": day-3/12-key-management.md
+      - "13. Protecting Cryptographic Keys": day-3/13-protecting-keys.md
+      - "14. Cryptography in Secure Architecture": day-3/14-secure-architecture.md
+      - "15. Crypto Agility": day-3/15-crypto-agility.md
+      - "16. Post-Quantum Migration Architecture": day-3/16-pqc-migration.md
+  - Labs:
+      - Lab index: labs/index.md
+      - "Lab 1 — Authenticated Encryption": labs/lab-01-aead.md
+      - "Lab 1 — Hints and solutions": labs/lab-01-aead-solutions.md
+      - "Lab 2 — Building a Secure Channel": labs/lab-02-classical-channel.md
+      - "Lab 3 — Perfect Algorithm, Broken System": labs/lab-03-crypto-failures.md
+      - "Lab 4 — Build and Use a Mini-PKI": labs/lab-04-mini-pki.md
+      - "Lab 5 — Build an ML-KEM Secure Channel": labs/lab-05-pqc-channel.md
+      - "Lab 6 — ML-DSA Signatures": labs/lab-06-pqc-signatures.md
+      - "Lab 4 — Worked solution": labs/lab-04-mini-pki-solutions.md
+      - "Lab 5 — Worked solution": labs/lab-05-pqc-channel-solutions.md
+      - "Lab 6 — Worked solution": labs/lab-06-pqc-signatures-solutions.md
+  - Instructor pages:
+      - "Teach Session 1 — Requirements and Threat Models": teach/01-security-requirements.md
+      - "Teach Session 2 — AEAD": teach/02-aead.md
+      - "Teach Session 3 — Hashes, Passwords and KDFs": teach/03-hashes-passwords-kdfs.md
+      - "Teach Session 4 — Classical Public-Key Cryptography": teach/04-classical-public-key.md
+      - "Teach Session 5 — Digital Signatures": teach/05-digital-signatures.md
+      - "Teach Session 6 — PKI": teach/06-pki-certificates.md
+      - "Teach Session 7 — TLS": teach/07-tls.md
+      - "Teach Session 8 — Quantum Threat": teach/08-quantum-threat.md
+      - "Teach Session 9 — ML-KEM": teach/09-ml-kem.md
+      - "Teach Session 10 — Hybrid": teach/10-hybrid-key-establishment.md
+      - "Teach Session 11 — ML-DSA": teach/11-ml-dsa.md
+      - "Teach Session 12 — Cryptographic Key Management": teach/12-key-management.md
+      - "Teach Session 13 — Protecting Cryptographic Keys": teach/13-protecting-keys.md
+      - "Teach Session 14 — Cryptography in Secure Architecture": teach/14-secure-architecture.md
+      - "Teach Session 15 — Crypto Agility": teach/15-crypto-agility.md
+      - "Teach Session 16 — Post-Quantum Migration Architecture": teach/16-pqc-migration.md
+      - "Facilitate Capstone": teach/capstone.md
+      - "Facilitate Lab 4": teach/lab-04-mini-pki.md
+      - "Facilitate Lab 5": teach/lab-05-pqc-channel.md
+      - "Facilitate Lab 6": teach/lab-06-pqc-signatures.md
+      - "Facilitate Lab 1": teach/lab-01-aead.md
+  - Capstone:
+      - Brief: capstone/index.md
+      - Worksheet: capstone/worksheet.md
+      - Incidents: capstone/incidents.md
+      - Rubric: capstone/rubric.md
+      - Worked architecture: capstone/worked-architecture.md
+  - Resources:
+      - Resource index: resources/index.md
+      - Threat-model worksheet: resources/threat-model-worksheet.md
+      - "Cryptographic Decision Framework": resources/decision-framework.md
+      - "Secure Coding Checklist": resources/secure-coding-checklist.md
+      - "Key-Management Checklist": resources/key-management-checklist.md
+      - "PKI/TLS Cheat Sheet": resources/pki-tls-cheatsheet.md
+      - "PQC Terminology and Migration Cheat Sheet": resources/pqc-glossary.md
+      - "Architecture Review Checklist": resources/architecture-review.md
+      - "Crypto-Agility Checklist": resources/crypto-agility-checklist.md
+      - "Post-Quantum Migration Worksheet": resources/migration-worksheet.md
+      - "Standards and Further Reading": resources/standards-reading.md
+  - Advanced: advanced/index.md

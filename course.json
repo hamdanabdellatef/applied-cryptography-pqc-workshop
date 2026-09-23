@@ -1,0 +1,256 @@
+{
+  "status": "in-development",
+  "lessons": [
+    {
+      "id": 1,
+      "day": 1,
+      "title": "Security Requirements and Threat Models",
+      "minutes": 40,
+      "page": "docs/day-1/01-security-requirements.md",
+      "status": "implemented",
+      "instructor_page": "docs/teach/01-security-requirements.md",
+      "worksheet": "docs/resources/threat-model-worksheet.md"
+    },
+    {
+      "id": 2,
+      "day": 1,
+      "title": "Symmetric Cryptography and AEAD",
+      "minutes": 60,
+      "page": "docs/day-1/02-symmetric-aead.md",
+      "status": "implemented",
+      "instructor_page": "docs/teach/02-aead.md"
+    },
+    {
+      "id": 3,
+      "day": 1,
+      "title": "Hashes, MACs, Passwords and KDFs",
+      "minutes": 60,
+      "page": "docs/day-1/03-hashes-passwords-kdfs.md",
+      "status": "implemented",
+      "instructor_page": "docs/teach/03-hashes-passwords-kdfs.md",
+      "notebook": "notebooks/session-03-hashes-passwords-kdfs.ipynb",
+      "demo": "examples/session-03/demo.py"
+    },
+    {
+      "id": 4,
+      "day": 1,
+      "title": "Classical Public-Key Cryptography",
+      "minutes": 60,
+      "page": "docs/day-1/04-classical-public-key.md",
+      "status": "implemented",
+      "instructor_page": "docs/teach/04-classical-public-key.md",
+      "notebook": "notebooks/session-04-classical-public-key.ipynb",
+      "demo": "examples/session-04/demo.py"
+    },
+    {
+      "id": 5,
+      "day": 1,
+      "title": "Digital Signatures",
+      "minutes": 45,
+      "page": "docs/day-1/05-digital-signatures.md",
+      "status": "implemented",
+      "instructor_page": "docs/teach/05-digital-signatures.md",
+      "notebook": "notebooks/session-05-digital-signatures.ipynb",
+      "demo": "examples/session-05/demo.py"
+    },
+    {
+      "id": 6,
+      "day": 2,
+      "title": "PKI and Certificates",
+      "minutes": 60,
+      "page": "docs/day-2/06-pki-certificates.md",
+      "status": "implemented",
+      "instructor_page": "docs/teach/06-pki-certificates.md",
+      "notebook": "notebooks/session-06-pki-certificates.ipynb",
+      "demo": "examples/session-06/demo.py"
+    },
+    {
+      "id": 7,
+      "day": 2,
+      "title": "TLS 1.3",
+      "minutes": 45,
+      "page": "docs/day-2/07-tls.md",
+      "status": "implemented",
+      "instructor_page": "docs/teach/07-tls.md",
+      "notebook": "notebooks/session-07-tls.ipynb",
+      "demo": "examples/session-07/demo.py"
+    },
+    {
+      "id": 8,
+      "day": 2,
+      "title": "The Quantum Threat",
+      "minutes": 60,
+      "page": "docs/day-2/08-quantum-threat.md",
+      "status": "implemented",
+      "instructor_page": "docs/teach/08-quantum-threat.md",
+      "notebook": "notebooks/session-08-quantum-threat.ipynb",
+      "demo": "examples/session-08/demo.py"
+    },
+    {
+      "id": 9,
+      "day": 2,
+      "title": "Post-Quantum Key Establishment",
+      "minutes": 45,
+      "page": "docs/day-2/09-ml-kem.md",
+      "status": "implemented",
+      "instructor_page": "docs/teach/09-ml-kem.md",
+      "notebook": "notebooks/session-09-ml-kem.ipynb",
+      "demo": "examples/session-09/demo.py"
+    },
+    {
+      "id": 10,
+      "day": 2,
+      "title": "Hybrid Key Establishment",
+      "minutes": 45,
+      "page": "docs/day-2/10-hybrid-key-establishment.md",
+      "status": "implemented",
+      "instructor_page": "docs/teach/10-hybrid-key-establishment.md",
+      "notebook": "notebooks/session-10-hybrid-key-establishment.ipynb",
+      "demo": "examples/session-10/demo.py"
+    },
+    {
+      "id": 11,
+      "day": 2,
+      "title": "Post-Quantum Digital Signatures",
+      "minutes": 45,
+      "page": "docs/day-2/11-ml-dsa.md",
+      "status": "implemented",
+      "instructor_page": "docs/teach/11-ml-dsa.md",
+      "notebook": "notebooks/session-11-ml-dsa.ipynb",
+      "demo": "examples/session-11/demo.py"
+    },
+    {
+      "id": 12,
+      "day": 3,
+      "title": "Cryptographic Key Management",
+      "minutes": 60,
+      "page": "docs/day-3/12-key-management.md",
+      "status": "implemented",
+      "instructor_page": "docs/teach/12-key-management.md",
+      "notebook": "notebooks/session-12-key-management.ipynb",
+      "demo": "examples/session-12/demo.py"
+    },
+    {
+      "id": 13,
+      "day": 3,
+      "title": "Protecting Cryptographic Keys",
+      "minutes": 45,
+      "page": "docs/day-3/13-protecting-keys.md",
+      "status": "implemented",
+      "instructor_page": "docs/teach/13-protecting-keys.md",
+      "notebook": "notebooks/session-13-protecting-keys.ipynb",
+      "demo": "examples/session-13/demo.py"
+    },
+    {
+      "id": 14,
+      "day": 3,
+      "title": "Cryptography in Secure Architecture",
+      "minutes": 60,
+      "page": "docs/day-3/14-secure-architecture.md",
+      "status": "implemented",
+      "instructor_page": "docs/teach/14-secure-architecture.md",
+      "notebook": "notebooks/session-14-secure-architecture.ipynb",
+      "demo": "examples/session-14/demo.py"
+    },
+    {
+      "id": 15,
+      "day": 3,
+      "title": "Crypto Agility",
+      "minutes": 60,
+      "page": "docs/day-3/15-crypto-agility.md",
+      "status": "implemented",
+      "instructor_page": "docs/teach/15-crypto-agility.md",
+      "notebook": "notebooks/session-15-crypto-agility.ipynb",
+      "demo": "examples/session-15/demo.py"
+    },
+    {
+      "id": 16,
+      "day": 3,
+      "title": "Post-Quantum Migration Architecture",
+      "minutes": 60,
+      "page": "docs/day-3/16-pqc-migration.md",
+      "status": "implemented",
+      "instructor_page": "docs/teach/16-pqc-migration.md",
+      "notebook": "notebooks/session-16-pqc-migration.ipynb",
+      "demo": "examples/session-16/demo.py"
+    }
+  ],
+  "labs": [
+    {
+      "id": 1,
+      "day": 1,
+      "title": "Authenticated Encryption",
+      "minutes": 60,
+      "page": "docs/labs/lab-01-aead.md",
+      "notebook": "notebooks/lab-01-aead.ipynb",
+      "starter": "labs/lab-01-aead/starter.py",
+      "status": "implemented",
+      "instructor_page": "docs/teach/lab-01-aead.md",
+      "solutions_page": "docs/labs/lab-01-aead-solutions.md",
+      "notebook_source": "notebooks/source/lab-01-aead.md",
+      "validation": "Local kernel verified; live Colab delivery check pending"
+    },
+    {
+      "id": 2,
+      "day": 1,
+      "title": "Building a Secure Channel",
+      "minutes": 60,
+      "page": "docs/labs/lab-02-classical-channel.md",
+      "notebook": "notebooks/lab-02-classical-channel.ipynb",
+      "starter": "labs/lab-02-classical-channel/starter.py",
+      "status": "scaffold"
+    },
+    {
+      "id": 3,
+      "day": 1,
+      "title": "Perfect Algorithm, Broken System",
+      "minutes": 60,
+      "page": "docs/labs/lab-03-crypto-failures.md",
+      "notebook": "notebooks/lab-03-crypto-failures.ipynb",
+      "starter": "labs/lab-03-crypto-failures/starter.py",
+      "status": "scaffold"
+    },
+    {
+      "id": 4,
+      "day": 2,
+      "title": "Build and Use a Mini-PKI",
+      "minutes": 60,
+      "page": "docs/labs/lab-04-mini-pki.md",
+      "notebook": "notebooks/lab-04-mini-pki.ipynb",
+      "starter": "labs/lab-04-mini-pki/starter.py",
+      "status": "implemented",
+      "instructor_page": "docs/teach/lab-04-mini-pki.md",
+      "solutions_page": "docs/labs/lab-04-mini-pki-solutions.md",
+      "notebook_source": "docs/labs/lab-04-mini-pki.md",
+      "validation": "Fresh local kernel verified; live Colab delivery pending"
+    },
+    {
+      "id": 5,
+      "day": 2,
+      "title": "Build an ML-KEM Secure Channel",
+      "minutes": 60,
+      "page": "docs/labs/lab-05-pqc-channel.md",
+      "notebook": "notebooks/lab-05-pqc-channel.ipynb",
+      "starter": "labs/lab-05-pqc-channel/starter.py",
+      "status": "implemented",
+      "instructor_page": "docs/teach/lab-05-pqc-channel.md",
+      "solutions_page": "docs/labs/lab-05-pqc-channel-solutions.md",
+      "notebook_source": "docs/labs/lab-05-pqc-channel.md",
+      "validation": "Fresh local kernel verified; live Colab delivery pending"
+    },
+    {
+      "id": 6,
+      "day": 2,
+      "title": "ML-DSA Signatures",
+      "minutes": 30,
+      "page": "docs/labs/lab-06-pqc-signatures.md",
+      "notebook": "notebooks/lab-06-pqc-signatures.ipynb",
+      "starter": "labs/lab-06-pqc-signatures/starter.py",
+      "status": "implemented",
+      "instructor_page": "docs/teach/lab-06-pqc-signatures.md",
+      "solutions_page": "docs/labs/lab-06-pqc-signatures-solutions.md",
+      "notebook_source": "docs/labs/lab-06-pqc-signatures.md",
+      "validation": "Fresh local kernel verified; live Colab delivery pending"
+    }
+  ]
+}

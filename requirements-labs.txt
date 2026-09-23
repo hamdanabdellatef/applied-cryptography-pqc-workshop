@@ -1,0 +1,6 @@
+# Day 1 and Day 2 teaching baseline. Review before each course release.
+cryptography==50.0.1
+ipywidgets==8.1.7
+matplotlib==3.10.6
+argon2-cffi==25.1.0
+# Day 2 uses this cryptography wheel's native ML-KEM/ML-DSA support.

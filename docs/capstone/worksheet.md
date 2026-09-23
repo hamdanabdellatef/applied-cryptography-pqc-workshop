@@ -1,0 +1,77 @@
+# Architecture capstone worksheet
+
+[Brief](index.md) · [Download editable worksheet](../downloads/capstone-worksheet.md.txt) · [Inventory CSV](../downloads/capstone-inventory.csv)
+
+The editable download contains Markdown text. Save it with a `.md` extension to edit it in your Markdown editor.
+
+Copy this worksheet before filling it in. Blank fields are learner inputs, not missing teaching content. Use synthetic system names and do not include real secrets.
+
+## Requirements and assumptions
+
+- Team/learner and review date:
+- Confidentiality, integrity, availability and authenticity objectives:
+- Data lifetime and retention assumptions:
+- Adversary capabilities and excluded capabilities:
+- Trusted parties and why their trust is necessary:
+- Decisions needing owner approval or additional evidence:
+
+## Annotated architecture
+
+Replace the labels and extend this starter. Mark plaintext explicitly, including search, logs, caches and exports.
+
+```mermaid
+flowchart LR
+    C["Client boundary"] --> G["Gateway boundary"]
+    G --> A["Application boundary"]
+    A --> S["Storage boundary"]
+    A --> K["Key-use boundary"]
+    S --> B["Backup and recovery boundary"]
+```
+
+## Asset and flow inventory
+
+Add at least eight rows. Distinguish a confirmed profile from a proposed one; record evidence rather than guessing.
+
+| Asset/flow | Plaintext locations | Crypto role and profile | Key/trust owner | Lifetime and copies | Evidence / unknowns |
+| --- | --- | --- | --- | --- | --- |
+| User upload | | | | | |
+| Internal API | | | | | |
+| Document objects | | | | | |
+| Database metadata | | | | | |
+| Search index | | | | | |
+| Queue | | | | | |
+| Backups and reader | | | | | |
+| Signed updates | | | | | |
+
+## Key lifecycle
+
+| Key class | Generate/provision | Who may use / administer | Rotation and historical use | Recovery test | Destruction evidence |
+| --- | --- | --- | --- | --- | --- |
+| Object DEKs | | | | | |
+| Tenant KEKs | | | | | |
+| TLS / workload identity | | | | | |
+| Release-signing key | | | | | |
+| Recovery material | | | | | |
+
+## Migration and acceptance
+
+| Dependency and owner | Current exposure | Target profile or pending decision | Prerequisites | Acceptance evidence | Safe rollback floor |
+| --- | --- | --- | --- | --- | --- |
+| Transport | | | | | |
+| Archive / backup reader | | | | | |
+| Identity / PKI | | | | | |
+| Update verification | | | | | |
+
+## Incident response record
+
+Repeat for each inject: evidence received; exposed assets and keys; surviving protection and assumptions; immediate containment; recovery/migration change; test that would confirm the repair; owner; residual historical risk.
+
+## Final claim and peer review
+
+- A precise protection we provide:
+- A compromise we do not withstand:
+- The slowest migration dependency:
+- A restore test with measurable pass criteria:
+- A downgrade or unauthorized-use test:
+- A remaining uncertainty and assigned owner:
+- Rubric score with evidence links and planned improvements:

@@ -1,0 +1,2 @@
+# Initial build baseline. Revisit before the first course release.
+mkdocs==1.6.1

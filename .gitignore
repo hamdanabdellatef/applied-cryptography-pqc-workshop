@@ -1,0 +1,10 @@
+.venv/
+.build-tools/
+.verification/
+site/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.env
+*.pem
+*.key

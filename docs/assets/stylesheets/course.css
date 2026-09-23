@@ -1,0 +1,34 @@
+.course-diagram {
+  margin: 1.5rem 0;
+  border: 1px solid #cbd5df;
+  border-radius: .5rem;
+  background: #fff;
+  padding: 1rem;
+  color: #183345;
+}
+.diagram-canvas { overflow-x: auto; text-align: center; padding: .5rem 0; }
+.diagram-canvas svg { max-width: 100%; height: auto; }
+.course-diagram details { border: 0; margin-bottom: 0; font-size: .85rem; }
+details { margin: 1rem 0; border-left: 3px solid #196a83; padding: .7rem 1rem; background: #f3f7f9; color: #183345; }
+summary { cursor: pointer; font-weight: 600; }
+summary:focus-visible { outline: 3px solid #196a83; outline-offset: 3px; }
+details p, details ol { margin-top: .8rem; }
+.diagram-notice { color: #733e10; background: #fff5e8; padding: .75rem; }
+/* Apply the same readable cell grid to every course table. */
+table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+table > :not(caption) > * > *,
+table.table > :not(caption) > * > * {
+  border: 1px solid #8b9daa;
+  padding: .65rem .75rem;
+  vertical-align: top;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+table th { background-color: #eaf1f5; color: #183345; }
+table p, table a, table code { white-space: normal; overflow-wrap: anywhere; }
+table pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+@media print {
+  .course-diagram { break-inside: avoid; }
+  .course-diagram details { display: none; }
+}

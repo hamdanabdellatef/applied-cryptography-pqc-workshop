@@ -103,6 +103,38 @@ For a powerful adversary, protecting the private key alone is insufficient if a 
 <ol><li>No. Inspect the negotiated group and authentication mechanisms separately.</li><li>No. It is an endpoint of both connections.</li><li>No. The authenticated identity needs application authorization.</li><li>Early data can be replayed; the application needs an appropriate policy and duplicate handling.</li></ol>
 </details>
 
+## Interactive teaching bench
+
+Run all preceding cells, then use this panel. **Next step** executes one operation; **Run all steps** completes the selected trial. Changing a scenario or slider starts a fresh trace. **Reset experiment** clears observations. Predict before revealing each result.
+
+```python
+teaching_controls = teaching_panel(7, globals())
+```
+
+**Inspect:** Negotiated protocol, cipher suite, client-authentication flag and application byte count. Click **Print revealed objects** after advancing. Byte objects include lengths, SHA-256 fingerprints and full hex. Disposable secrets are hidden unless you enable **Reveal disposable secrets** and print again. Turning it off clears the inspection output. Never substitute production keys or data.
+
+**Try and explain:** Predict whether changing the expected hostname affects the certificate or the verifier. Compare server-only TLS with mTLS, then remove the client certificate.
+
+| Round | Action | Learner evidence |
+| --- | --- | --- |
+| Predict | Select `valid`; write the expected next observation | A claim tied to one input |
+| Observe | Advance and inspect objects already produced | Actual values and the operation that produced them |
+| Challenge | Select `wrong-hostname` | First changed result, failure or exposure |
+| Explain | Compare traces and state a limitation | A bounded security claim |
+
+A real handshake failure is the result. The panel executes the complete maintained TLS handshake in one step; its surrounding rows are explanations, not intercepted TLS packets.
+
+Without widgets, run the same experiment directly; change the case argument to explore:
+
+```python
+teaching_rows = print_teaching_trace(7, globals(), 'wrong-hostname')
+assert len(teaching_rows) >= 2
+print('PASS: Session 7 teaching trace completed')
+```
+
+The helper returns rows and inspection objects for follow-up examination. Completing a trace does not mean acceptance: inspect its status labels. Preserve your prediction and corrected explanation.
+
+
 ## Sources
 
 Reviewed 22 September 2026: [RFC 8446](https://www.rfc-editor.org/rfc/rfc8446) and [Python SSLObject/MemoryBIO](https://docs.python.org/3/library/ssl.html). This session does not claim that its TLS connection negotiates PQ or hybrid groups.

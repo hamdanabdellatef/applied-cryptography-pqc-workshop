@@ -7,6 +7,7 @@ import argparse
 import json
 from pathlib import Path
 import re
+from notebook_diagrams import embed_diagrams
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -32,7 +33,7 @@ def render():
         add('code', match.group(1))
         cursor = match.end()
     add('markdown', source[cursor:])
-    notebook = {'cells': cells, 'metadata': {
+    notebook = {'cells': embed_diagrams(cells), 'metadata': {
         'kernelspec': {'display_name': 'Python 3', 'language': 'python', 'name': 'python3'},
         'language_info': {'name': 'python'},
         'colab': {'name': 'lab-01-aead.ipynb', 'provenance': []},

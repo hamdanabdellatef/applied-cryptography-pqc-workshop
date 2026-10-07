@@ -6,5 +6,6 @@ __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
 .env
+scripts/diagram-renderer/node_modules/
 *.pem
 *.key

@@ -111,6 +111,38 @@ An offline device verifies only classical update signatures and cannot parse lar
 
 Complete the [migration worksheet](../resources/migration-worksheet.md), then undertake the [architecture capstone](../capstone/index.md).
 
+## Interactive teaching bench
+
+Run all preceding cells, then use this panel. **Next step** executes one operation; **Run all steps** completes the selected trial. Changing a scenario or slider starts a fresh trace. **Reset experiment** clears observations. Predict before revealing each result.
+
+```python
+teaching_controls = teaching_panel(16, globals())
+```
+
+**Inspect:** Dependency sets, task durations, start/finish times and rollout completion. Click **Print revealed objects** after advancing. Byte objects include lengths, SHA-256 fingerprints and full hex. Disposable secrets are hidden unless you enable **Reveal disposable secrets** and print again. Turning it off clears the inspection output. Never substitute production keys or data.
+
+**Try and explain:** Use the extra-delay slider for verifier-delay and transport-delay. Predict whether a small transport delay changes rollout; then create a cycle.
+
+| Round | Action | Learner evidence |
+| --- | --- | --- |
+| Predict | Select `baseline`; write the expected next observation | A claim tied to one input |
+| Observe | Advance and inspect objects already produced | Actual values and the operation that produced them |
+| Challenge | Select `verifier-delay` | First changed result, failure or exposure |
+| Explain | Compare traces and state a limitation | A bounded security claim |
+
+The generator calculates one task per click in topological order. Durations are invented, parallel capacity is unlimited, and this is not a quantum-arrival forecast.
+
+Without widgets, run the same experiment directly; change the case argument to explore:
+
+```python
+teaching_rows = print_teaching_trace(16, globals(), 'verifier-delay')
+assert len(teaching_rows) >= 2
+print('PASS: Session 16 teaching trace completed')
+```
+
+The helper returns rows and inspection objects for follow-up examination. Completing a trace does not mean acceptance: inspect its status labels. Preserve your prediction and corrected explanation.
+
+
 ## Sources
 
 Reviewed 22 September 2026: [NCCoE migration project](https://www.nccoe.nist.gov/applied-cryptography/migration-to-pqc), [FIPS 203](https://csrc.nist.gov/pubs/fips/203/final), [FIPS 204](https://csrc.nist.gov/pubs/fips/204/final), [FIPS 205](https://csrc.nist.gov/pubs/fips/205/final). Recheck profiles, errata and implementation support before a real deployment; no universal migration deadline is asserted here.

@@ -2,6 +2,16 @@
 
 **45 minutes.** [Self-study](../day-2/07-tls.md) · [Notebook](../downloads/session-07-tls.ipynb)
 
+## Interactive notebook facilitation
+
+After the core examples, open the lesson's **Interactive teaching bench**. Ask for a written prediction, click **Next step**, then **Print revealed objects**. Reveal only disposable secrets when comparing keys. Reset between scenarios and keep the changed assumption explicit.
+
+Predict whether changing the expected hostname affects the certificate or the verifier. Compare server-only TLS with mTLS, then remove the client certificate.
+
+A real handshake failure is the result. The panel executes the complete maintained TLS handshake in one step; its surrounding rows are explanations, not intercepted TLS packets.
+
+Reserve five minutes from the existing demonstration/practice time for one valid and one changed case; assign the remaining cases for self-study. Ask each learner to name the observed result and one claim it does not establish. Run diagram cells before class so the embedded images are visible.
+
 ## Before class
 
 Run the notebook from a clean kernel using the [Day 2 setup](../getting-started/day-2-setup.md). Use synthetic data and preserve verification failures as teaching results. Rehearse the timing; independent learners have the longer self-study treatment and worked answers. Optional extensions can be assigned after class.

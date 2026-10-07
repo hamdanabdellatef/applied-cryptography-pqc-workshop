@@ -93,6 +93,38 @@ An HSM stores a release key, and the build service can request signatures over a
 
 Exit check: name one extraction risk and one authorized-use risk for your architecture. Continue to [secure architecture](14-secure-architecture.md).
 
+## Interactive teaching bench
+
+Run all preceding cells, then use this panel. **Next step** executes one operation; **Run all steps** completes the selected trial. Changing a scenario or slider starts a fresh trace. **Reset experiment** clears observations. Predict before revealing each result.
+
+```python
+teaching_controls = teaching_panel(13, globals())
+```
+
+**Inspect:** Assumed authenticated identity, tenant, grant decision and audit event. Click **Print revealed objects** after advancing. Byte objects include lengths, SHA-256 fingerprints and full hex. Disposable secrets are hidden unless you enable **Reveal disposable secrets** and print again. Turning it off clears the inspection output. Never substitute production keys or data.
+
+**Try and explain:** Compare wrong-tenant, operator-decrypt, compromised-reader and revoked-grant. Predict which request still succeeds after compromise.
+
+| Round | Action | Learner evidence |
+| --- | --- | --- |
+| Predict | Select `valid`; write the expected next observation | A claim tied to one input |
+| Observe | Advance and inspect objects already produced | Actual values and the operation that produced them |
+| Challenge | Select `compromised-reader` | First changed result, failure or exposure |
+| Explain | Compare traces and state a limitation | A bounded security claim |
+
+The model assumes authentication and temporarily changes only its in-memory grant set. It restores that set after each trial; it does not revoke real credentials or cached keys.
+
+Without widgets, run the same experiment directly; change the case argument to explore:
+
+```python
+teaching_rows = print_teaching_trace(13, globals(), 'compromised-reader')
+assert len(teaching_rows) >= 2
+print('PASS: Session 13 teaching trace completed')
+```
+
+The helper returns rows and inspection objects for follow-up examination. Completing a trace does not mean acceptance: inspect its status labels. Preserve your prediction and corrected explanation.
+
+
 ## Source and scope
 
 Reviewed 22 September 2026: [NIST key-management guidance](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final). This comparison is architectural; no vendor security certification or hardware resistance is asserted or tested.

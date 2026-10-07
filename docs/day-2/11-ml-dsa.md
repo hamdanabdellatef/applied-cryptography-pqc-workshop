@@ -115,6 +115,38 @@ For the state actor scenario, protect build inputs, release approval and signing
 
 Continue to [Lab 6](../labs/lab-06-pqc-signatures.md) and then the [Day 3 architecture material](../day-3/index.md).
 
+## Interactive teaching bench
+
+Run all preceding cells, then use this panel. **Next step** executes one operation; **Run all steps** completes the selected trial. Changing a scenario or slider starts a fresh trace. **Reset experiment** clears observations. Predict before revealing each result.
+
+```python
+teaching_controls = teaching_panel(11, globals())
+```
+
+**Inspect:** Exact signed bytes, context, public verification key and signature bytes. Click **Print revealed objects** after advancing. Byte objects include lengths, SHA-256 fingerprints and full hex. Disposable secrets are hidden unless you enable **Reveal disposable secrets** and print again. Turning it off clears the inspection output. Never substitute production keys or data.
+
+**Try and explain:** Try message/context/key corruption, then old-version. Predict which one passes mathematical verification but fails application policy.
+
+| Round | Action | Learner evidence |
+| --- | --- | --- |
+| Predict | Select `valid`; write the expected next observation | A claim tied to one input |
+| Observe | Advance and inspect objects already produced | Actual values and the operation that produced them |
+| Challenge | Select `old-version` | First changed result, failure or exposure |
+| Explain | Compare traces and state a limitation | A bounded security claim |
+
+The old-version scenario signs an older version correctly. It isolates rollback policy from signature validity; it is not a broken-signature example.
+
+Without widgets, run the same experiment directly; change the case argument to explore:
+
+```python
+teaching_rows = print_teaching_trace(11, globals(), 'old-version')
+assert len(teaching_rows) >= 2
+print('PASS: Session 11 teaching trace completed')
+```
+
+The helper returns rows and inspection objects for follow-up examination. Completing a trace does not mean acceptance: inspect its status labels. Preserve your prediction and corrected explanation.
+
+
 ## Sources
 
 Reviewed 22 September 2026: [FIPS 204 and errata notices](https://csrc.nist.gov/pubs/fips/204/final), [FIPS 205](https://csrc.nist.gov/pubs/fips/205/final), [ML-DSA API](https://cryptography.io/en/stable/hazmat/primitives/asymmetric/mldsa/). Standardization of a primitive is not a claim that this Python runtime is FIPS validated.

@@ -4,6 +4,7 @@ import csv
 import io
 import json
 import re
+from notebook_diagrams import embed_diagrams
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,7 +14,7 @@ DAY3_NAMES = ['session-' + slug for slug in LESSONS]
 SETUP = '''import importlib.metadata
 import subprocess
 import sys
-for package, version in {"cryptography": "50.0.1", "matplotlib": "3.10.6"}.items():
+for package, version in {"cryptography": "50.0.1", "matplotlib": "3.10.6", "ipywidgets": "8.1.7"}.items():
     try:
         installed = importlib.metadata.version(package)
     except importlib.metadata.PackageNotFoundError:
@@ -44,8 +45,12 @@ def outputs():
                 cell.update(execution_count=None, outputs=[])
             cells.append(cell)
 
-        add('markdown', '# Day 3 notebook companion\n\nRun in order with synthetic data. Predict results before executing, then change inputs and explain the effect. Mermaid diagrams render on the website. This notebook includes its dependencies and requires no checkout or cloud credentials.')
+        add('markdown', '# Day 3 notebook companion\n\nRun in order with synthetic data. Predict results before executing, then change inputs and explain the effect. Run the collapsed diagram cells to display embedded Mermaid images offline. This notebook includes its dependencies and requires no checkout or cloud credentials.')
         add('code', SETUP)
+        panels = (ROOT / 'src/crypto_workshop/teaching_panels.py').read_text(encoding='utf-8')
+        add('markdown', '## Interactive teaching helpers\n\nRun this cell once. Use the panel at the end of the lesson to predict, step, inspect and explain. Policy and planning experiments are explicitly models.')
+        add('code', panels)
+        code.append(panels)
         cursor = 0
         for match in re.finditer(r'^```python\n(.*?)\n```[ \t]*$', source, re.M | re.S):
             add('markdown', source[cursor:match.start()])
@@ -55,7 +60,7 @@ def outputs():
         add('markdown', source[cursor:])
         finish = f'print("PASS: completed {name} demonstrations")'
         add('code', finish)
-        notebook = dict(cells=cells, metadata={
+        notebook = dict(cells=embed_diagrams(cells), metadata={
             'kernelspec': {'display_name': 'Python 3', 'language': 'python', 'name': 'python3'},
             'language_info': {'name': 'python'}, 'colab': {'name': name + '.ipynb', 'provenance': []},
         }, nbformat=4, nbformat_minor=5)

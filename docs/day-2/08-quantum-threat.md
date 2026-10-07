@@ -112,6 +112,38 @@ An archive must remain confidential for 25 years. Its TLS gateway can be upgrade
 
 Ready to continue: explain why “we use AES-256” and “we have forward secrecy” do not complete an HNDL assessment. Next: [ML-KEM](09-ml-kem.md).
 
+## Interactive teaching bench
+
+Run all preceding cells, then use this panel. **Next step** executes one operation; **Run all steps** completes the selected trial. Changing a scenario or slider starts a fresh trace. **Reset experiment** clears observations. Predict before revealing each result.
+
+```python
+teaching_controls = teaching_panel(8, globals())
+```
+
+**Inspect:** Secrecy lifetime L, migration duration M, hypothetical horizon H and computed gap. Click **Print revealed objects** after advancing. Byte objects include lengths, SHA-256 fingerprints and full hex. Disposable secrets are hidden unless you enable **Reveal disposable secrets** and print again. Turning it off clears the inspection output. Never substitute production keys or data.
+
+**Try and explain:** Move H across L + M using the slider. Write the exact boundary value for the archive and telemetry before running.
+
+| Round | Action | Learner evidence |
+| --- | --- | --- |
+| Predict | Select `archive`; write the expected next observation | A claim tied to one input |
+| Observe | Advance and inspect objects already produced | Actual values and the operation that produced them |
+| Challenge | Select `telemetry` | First changed result, failure or exposure |
+| Explain | Compare traces and state a limitation | A bounded security claim |
+
+A nonpositive gap changes only this heuristic. It cannot prove safety, forecast quantum capability or recall recorded data.
+
+Without widgets, run the same experiment directly; change the case argument to explore:
+
+```python
+teaching_rows = print_teaching_trace(8, globals(), 'telemetry')
+assert len(teaching_rows) >= 2
+print('PASS: Session 8 teaching trace completed')
+```
+
+The helper returns rows and inspection objects for follow-up examination. Completing a trace does not mean acceptance: inspect its status labels. Preserve your prediction and corrected explanation.
+
+
 ## Sources
 
 Reviewed 22 September 2026: [NIST PQC FAQs](https://csrc.nist.gov/projects/post-quantum-cryptography/faqs). Scenario values are invented teaching inputs, not estimates endorsed by NIST.

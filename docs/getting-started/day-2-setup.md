@@ -29,6 +29,6 @@ The PQ examples use real ML-KEM-768 and ML-DSA-65. They are primitive demonstrat
 | Certificate expired | Runtime clock and newly generated teaching certificates |
 | Widget not visible | Use the documented direct function call; widgets are optional controls |
 | Learner checks say NOT ATTEMPTED | Implement the learner function; reference checks do not count as your completion |
-| Mermaid appears as source in notebook | View diagrams on the website; explanations and source are still available |
+| Diagram not displayed yet | Run the collapsed Display teaching diagram cell; the PNG is embedded and requires no network request |
 
 Local verification and live Colab verification are distinct. See `planning/DAY-02-VALIDATION.md` for completed checks and remaining delivery limitations. No upload to a Google account is performed automatically.

@@ -2,6 +2,16 @@
 
 **60 minutes.** [Self-study](../day-2/08-quantum-threat.md) · [Notebook](../downloads/session-08-quantum-threat.ipynb)
 
+## Interactive notebook facilitation
+
+After the core examples, open the lesson's **Interactive teaching bench**. Ask for a written prediction, click **Next step**, then **Print revealed objects**. Reveal only disposable secrets when comparing keys. Reset between scenarios and keep the changed assumption explicit.
+
+Move H across L + M using the slider. Write the exact boundary value for the archive and telemetry before running.
+
+A nonpositive gap changes only this heuristic. It cannot prove safety, forecast quantum capability or recall recorded data.
+
+Reserve five minutes from the existing demonstration/practice time for one valid and one changed case; assign the remaining cases for self-study. Ask each learner to name the observed result and one claim it does not establish. Run diagram cells before class so the embedded images are visible.
+
 ## Before class
 
 Run the notebook from a clean kernel using the [Day 2 setup](../getting-started/day-2-setup.md). Use synthetic data and preserve verification failures as teaching results. Rehearse the timing; independent learners have the longer self-study treatment and worked answers. Optional extensions can be assigned after class.

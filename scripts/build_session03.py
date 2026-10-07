@@ -3,6 +3,7 @@ import argparse
 import json
 from pathlib import Path
 import re
+from notebook_diagrams import embed_diagrams
 
 ROOT = Path(__file__).resolve().parents[1]
 NAME = 'session-03-hashes-passwords-kdfs'
@@ -26,7 +27,7 @@ def render(session=3):
             cell.update(execution_count=None, outputs=[])
         cells.append(cell)
 
-    add('markdown', f'# Session {session} experimental companion\n\nRun cells in order. Use only synthetic data. Mermaid diagrams render on the course website; their source is retained below. Setup installs the pinned teaching dependencies in this notebook runtime.')
+    add('markdown', f'# Session {session} experimental companion\n\nRun cells in order. Use only synthetic data. Run the collapsed diagram cells to display embedded Mermaid images offline; source is retained in cell metadata. Setup installs the pinned teaching dependencies in this notebook runtime.')
     add('code', '''import importlib.metadata
 import subprocess
 import sys
@@ -48,7 +49,7 @@ print("Dependencies ready. If replacing an already imported library, restart the
         examples.append(match.group(1))
         cursor = match.end()
     add('markdown', source[cursor:])
-    notebook = dict(cells=cells, metadata={
+    notebook = dict(cells=embed_diagrams(cells), metadata={
         'kernelspec': {'display_name': 'Python 3', 'language': 'python', 'name': 'python3'},
         'language_info': {'name': 'python'}, 'colab': {'name': name + '.ipynb', 'provenance': []},
     }, nbformat=4, nbformat_minor=5)

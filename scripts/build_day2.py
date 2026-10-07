@@ -3,6 +3,7 @@ import argparse
 import json
 from pathlib import Path
 import re
+from notebook_diagrams import embed_diagrams
 
 ROOT = Path(__file__).resolve().parents[1]
 LESSONS = ['06-pki-certificates', '07-tls', '08-quantum-threat', '09-ml-kem',
@@ -44,10 +45,15 @@ def outputs():
                 cell.update(execution_count=None, outputs=[])
             cells.append(cell)
 
-        add('markdown', '# Day 2 notebook companion\n\nRun in order with synthetic data. Mermaid diagrams render on the website. Setup and shared helpers are embedded; no checkout is required. Learner exercises report NOT ATTEMPTED until implemented. Reference checks are separate. Optional controls also have direct function calls.')
+        add('markdown', '# Day 2 notebook companion\n\nRun in order with synthetic data. Run the collapsed diagram cells to display embedded Mermaid images offline. Setup and shared helpers are embedded; no checkout is required. Learner exercises report NOT ATTEMPTED until implemented. Reference checks are separate. Optional controls also have direct function calls.')
         add('code', SETUP)
         add('markdown', '## Shared teaching helpers\n\nInspect this implementation. TLS uses real SSL objects over memory buffers and temporary test key files; no system trust changes or network listeners. The teaching KDF is not a standardized protocol key schedule.')
         add('code', helper)
+        if not is_lab and int(slug[:2]) >= 7:
+            panels = (ROOT / 'src/crypto_workshop/teaching_panels.py').read_text(encoding='utf-8')
+            add('markdown', '## Interactive teaching helpers\n\nRun this cell once. The lesson ends with a predict, step, inspect and explain experiment. Secrets are disposable and hidden by default.')
+            add('code', panels)
+            code.append(panels)
         if slug == '06-pki-certificates':
             inspector = (ROOT / 'src/crypto_workshop/pki_walkthrough.py').read_text(encoding='utf-8')
             add('markdown', '## Certificate inspection and interactive validation helpers\n\nReal signatures and a direct signed CRL in a fixed teaching hierarchy. This is not a general-purpose certificate validator. Run this cell before the lesson experiments.')
@@ -62,7 +68,7 @@ def outputs():
         add('markdown', source[cursor:])
         finish = f'print("PASS: completed {name} demonstrations; learner status is reported separately")'
         add('code', finish)
-        notebook = dict(cells=cells, metadata={
+        notebook = dict(cells=embed_diagrams(cells), metadata={
             'kernelspec': {'display_name': 'Python 3', 'language': 'python', 'name': 'python3'},
             'language_info': {'name': 'python'}, 'colab': {'name': name + '.ipynb', 'provenance': []},
         }, nbformat=4, nbformat_minor=5)

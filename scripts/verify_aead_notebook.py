@@ -41,6 +41,9 @@ def main():
     nbformat.validate(notebook)
     client = NotebookClient(notebook, km=km, timeout=180, resources={'metadata': {'path': str(work)}})
     client.execute()
+    for cell in notebook.cells:
+        if 'workshop_mermaid' in cell.metadata:
+            assert any('image/png' in output.get('data', {}) for output in cell.get('outputs', [])), 'Mermaid image failed to display'
     nbformat.write(notebook, work / (name + '.executed.ipynb'))
     outputs = '\n'.join(output.get('text', '') for cell in notebook.cells
                         for output in cell.get('outputs', []) if output.output_type == 'stream')
@@ -50,7 +53,7 @@ def main():
             assert 'NOT ATTEMPTED:' in outputs
             assert 'reference checks' in outputs
         if name in {'session-08-quantum-threat', 'session-11-ml-dsa', 'session-16-pqc-migration'}:
-            assert any('image/png' in output.get('data', {}) for cell in notebook.cells
+            assert any('image/png' in output.get('data', {}) for cell in notebook.cells if 'workshop_mermaid' not in cell.metadata
                        for output in cell.get('outputs', [])), 'Expected rendered graph'
         print(outputs)
         print(f'PASS: fresh local kernel verified {name}')

@@ -110,6 +110,38 @@ A new profile is ready, but a disaster-recovery reader only accepts the old one.
 
 Use the [agility checklist](../resources/crypto-agility-checklist.md). Next: [migration architecture](16-pqc-migration.md).
 
+## Interactive teaching bench
+
+Run all preceding cells, then use this panel. **Next step** executes one operation; **Run all steps** completes the selected trial. Changing a scenario or slider starts a fresh trace. **Reset experiment** clears observations. Predict before revealing each result.
+
+```python
+teaching_controls = teaching_panel(15, globals())
+```
+
+**Inspect:** Read/write profile policy, selected provider and retirement evidence. Click **Print revealed objects** after advancing. Byte objects include lengths, SHA-256 fingerprints and full hex. Disposable secrets are hidden unless you enable **Reveal disposable secrets** and print again. Turning it off clears the inspection output. Never substitute production keys or data.
+
+**Try and explain:** Contrast legacy-read with legacy-write. Try unknown-profile, backup-not-ready and retire, and explain the different rejection points.
+
+| Round | Action | Learner evidence |
+| --- | --- | --- |
+| Predict | Select `valid`; write the expected next observation | A claim tied to one input |
+| Observe | Advance and inspect objects already produced | Actual values and the operation that produced them |
+| Challenge | Select `backup-not-ready` | First changed result, failure or exposure |
+| Explain | Compare traces and state a limitation | A bounded security claim |
+
+A ready Boolean gate is not evidence that migration really happened. The retire case deliberately shows a legacy read being rejected after the modeled policy change.
+
+Without widgets, run the same experiment directly; change the case argument to explore:
+
+```python
+teaching_rows = print_teaching_trace(15, globals(), 'backup-not-ready')
+assert len(teaching_rows) >= 2
+print('PASS: Session 15 teaching trace completed')
+```
+
+The helper returns rows and inspection objects for follow-up examination. Completing a trace does not mean acceptance: inspect its status labels. Preserve your prediction and corrected explanation.
+
+
 ## Sources
 
 Reviewed 22 September 2026: [NCCoE migration project](https://www.nccoe.nist.gov/applied-cryptography/migration-to-pqc), [TLS 1.3](https://www.rfc-editor.org/rfc/rfc8446). The profile state machine is an illustrative application policy, not a standardized wire protocol.

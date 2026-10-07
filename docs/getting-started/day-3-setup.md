@@ -2,7 +2,7 @@
 
 Day 3 has five self-contained notebook companions. Each embeds its lesson text, Python examples and dependency installation cell. Download a notebook from its lesson, open [Google Colab](https://colab.research.google.com/), choose **Upload**, then run the cells in order. No repository checkout, cloud account credentials, KMS subscription or hardware security module is needed.
 
-Use a Python 3 CPU runtime and synthetic data. If an older library was imported before setup, restart the runtime and run all cells again. Mermaid diagrams are provided as source in the notebooks and rendered on the course website.
+Use a Python 3 CPU runtime and synthetic data. If an older library was imported before setup, restart the runtime and run all cells again. Run the collapsed diagram cells to display embedded Mermaid images. Rendering needs no external service; diagram source is retained in cell metadata. Sessions 12–16 include interactive teaching panels and equivalent plain-function calls.
 
 ## Local execution
 

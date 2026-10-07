@@ -2,6 +2,16 @@
 
 **60 minutes.** [Self-study lesson](../day-3/12-key-management.md) · [Notebook](../downloads/session-12-key-management.ipynb) · [Setup](../getting-started/day-3-setup.md)
 
+## Interactive notebook facilitation
+
+After the core examples, open the lesson's **Interactive teaching bench**. Ask for a written prediction, click **Next step**, then **Print revealed objects**. Reveal only disposable secrets when comparing keys. Reset between scenarios and keep the changed assumption explicit.
+
+Compare wrong-kek with changed-context. Then rewrap and use the stolen-old-backup case to recover historical data.
+
+Rewrapping changes the wrapper, not the data key or already captured copies. This is real local AES-KW/AES-GCM, without a remote key service.
+
+Reserve five minutes from the existing demonstration/practice time for one valid and one changed case; assign the remaining cases for self-study. Ask each learner to name the observed result and one claim it does not establish. Run diagram cells before class so the embedded images are visible.
+
 ## Prepare and frame the lesson
 
 Read the full self-study page and execute the notebook in advance. Use synthetic data only. Open the diagrams before teaching and keep a local notebook available if connectivity fails. Learners should understand AEAD, authenticated public keys and the distinction between a primitive and a protocol from Days 1–2.

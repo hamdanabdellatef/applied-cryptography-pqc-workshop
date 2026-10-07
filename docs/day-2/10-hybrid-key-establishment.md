@@ -108,6 +108,38 @@ An archive client requires hybrid protection, but a legacy proxy only accepts cl
 
 Exit check: explain the difference between demonstrating that two inputs affect a KDF and proving a protocol remains secure when one component fails. Continue to [PQ signatures](11-ml-dsa.md).
 
+## Interactive teaching bench
+
+Run all preceding cells, then use this panel. **Next step** executes one operation; **Run all steps** completes the selected trial. Changing a scenario or slider starts a fresh trace. **Reset experiment** clears observations. Predict before revealing each result.
+
+```python
+teaching_controls = teaching_panel(10, globals())
+```
+
+**Inspect:** Classical and PQ contributions, selected profile and derived traffic key. Click **Print revealed objects** after advancing. Byte objects include lengths, SHA-256 fingerprints and full hex. Disposable secrets are hidden unless you enable **Reveal disposable secrets** and print again. Turning it off clears the inspection output. Never substitute production keys or data.
+
+**Try and explain:** Change the PQ contribution, then the transcript; compare the result with baseline. Try missing-contribution, downgrade and unauthenticated.
+
+| Round | Action | Learner evidence |
+| --- | --- | --- |
+| Predict | Select `valid`; write the expected next observation | A claim tied to one input |
+| Observe | Advance and inspect objects already produced | Actual values and the operation that produced them |
+| Challenge | Select `zero-pq-contribution` | First changed result, failure or exposure |
+| Explain | Compare traces and state a limitation | A bounded security claim |
+
+Changed output demonstrates sensitivity, not robust-combiner security. Zeroing an input is an experiment, never an approved fallback.
+
+Without widgets, run the same experiment directly; change the case argument to explore:
+
+```python
+teaching_rows = print_teaching_trace(10, globals(), 'zero-pq-contribution')
+assert len(teaching_rows) >= 2
+print('PASS: Session 10 teaching trace completed')
+```
+
+The helper returns rows and inspection objects for follow-up examination. Completing a trace does not mean acceptance: inspect its status labels. Preserve your prediction and corrected explanation.
+
+
 ## Sources and limits
 
 Reviewed 22 September 2026: [FIPS 203](https://csrc.nist.gov/pubs/fips/203/final), [TLS 1.3](https://www.rfc-editor.org/rfc/rfc8446), [HKDF RFC 5869](https://www.rfc-editor.org/rfc/rfc5869). No current IETF hybrid deployment profile is implemented or claimed by this notebook.

@@ -25,17 +25,23 @@ Ask for a prediction before executing code. After the observation, require learn
 
 Run make_pki and inspect SAN, Basic Constraints, path length and EKU. Ask which private key issued the leaf and whether an ordinary leaf may issue other certificates. Point to the intermediate CA constraint.
 
+Use **Print PEM and fields** to switch between root, intermediate, server and client. Reveal a disposable private key and compare it with the PUBLIC KEY and CERTIFICATE blocks. Explain Base64 versus DER and the signed TBSCertificate body. Ask students to find the SAN, issuer, serial, SKI/AKI and critical flag in the decoded table. Hide keys again before moving on; never substitute production material.
+
 Ask for a prediction before executing code. After the observation, require learners to state what was checked and what remains an assumption.
 
 ## Minutes 25–40: observe validation failures
 
 Predict and run wrong-hostname, unknown-root, expired and missing-intermediate cases. Keep verification enabled. Explain why cached intermediates can make broken chain delivery appear to work elsewhere.
 
+Open the validation panel at **server / valid** and reveal one row per prediction with **Next check**. Then select unknown-root, wrong-identity and altered-signed-body. Have learners name the first failed check and explain why subsequent rows say SKIP. Compare with the real MemoryBIO TLS examples: the panel is a fixed-chain explanatory model, not an OpenSSL trace or full path validator.
+
 Ask for a prediction before executing code. After the observation, require learners to state what was checked and what remains an assumption.
 
 ## Minutes 40–52: clients and revocation
 
 Run mTLS success, missing-client and wrong-EKU cases. Ask what permission the authenticated client gets. Expected: none automatically. Explain CRL/OCSP freshness and availability policy; the helper does not check online revocation.
+
+Switch the panel to **client**, show missing-client and wrong-purpose, then authorization-denied. The application maps the client SAN; TLS does not normally hostname-match the client. Select revoked and **Print current CRL**. Match its serial to the client certificate. Compare stale-crl, missing-crl and forged-crl, distinguishing revoked from unknown. The panel verifies locally signed leaf CRLs; the real TLS helper has no revocation checking. Assign the full scenario matrix as independent practice if twelve minutes is insufficient.
 
 Ask for a prediction before executing code. After the observation, require learners to state what was checked and what remains an assumption.
 

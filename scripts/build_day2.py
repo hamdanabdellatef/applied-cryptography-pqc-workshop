@@ -48,6 +48,11 @@ def outputs():
         add('code', SETUP)
         add('markdown', '## Shared teaching helpers\n\nInspect this implementation. TLS uses real SSL objects over memory buffers and temporary test key files; no system trust changes or network listeners. The teaching KDF is not a standardized protocol key schedule.')
         add('code', helper)
+        if slug == '06-pki-certificates':
+            inspector = (ROOT / 'src/crypto_workshop/pki_walkthrough.py').read_text(encoding='utf-8')
+            add('markdown', '## Certificate inspection and interactive validation helpers\n\nReal signatures and a direct signed CRL in a fixed teaching hierarchy. This is not a general-purpose certificate validator. Run this cell before the lesson experiments.')
+            add('code', inspector)
+            code.append(inspector)
         cursor = 0
         for match in re.finditer(r'^```python\n(.*?)\n```[ \t]*$', source, re.M | re.S):
             add('markdown', source[cursor:match.start()])
